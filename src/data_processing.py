@@ -16,7 +16,11 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import nltk
 
-from .embeddings import GloVeEmbeddings
+# Handle both relative and absolute imports
+try:
+    from .embeddings import GloVeEmbeddings
+except ImportError:
+    from embeddings import GloVeEmbeddings
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -327,10 +331,7 @@ def load_and_prepare_data(train_path: str,
     return X_train, X_test, y_train, y_test, train_texts, test_texts
 
 
-if __name__ == "__main__":
-    # Example usage
-    from embeddings import GloVeEmbeddings
-    
+if __name__ == "__main__":    
     # Load embeddings
     glove = GloVeEmbeddings("embeddings/glove.6B.100d.txt")
     word_vectors = glove.load_embeddings()
