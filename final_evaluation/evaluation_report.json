@@ -1,0 +1,161 @@
+{
+  "evaluation_metrics": {
+    "accuracy": 0.735655737704918,
+    "macro_avg": {
+      "precision": 0.6741392322244671,
+      "recall": 0.7090974409443332,
+      "f1-score": 0.686669148795942,
+      "support": 2928
+    },
+    "weighted_avg": {
+      "precision": 0.7610384146671184,
+      "recall": 0.735655737704918,
+      "f1-score": 0.7437946255307125,
+      "support": 2928
+    },
+    "per_class": {
+      "negative": {
+        "precision": 0.8763206960845246,
+        "recall": 0.7683923705722071,
+        "f1-score": 0.818815331010453,
+        "support": 1835
+      },
+      "neutral": {
+        "precision": 0.5317559153175592,
+        "recall": 0.6887096774193548,
+        "f1-score": 0.6001405481377371,
+        "support": 620
+      },
+      "positive": {
+        "precision": 0.6143410852713178,
+        "recall": 0.6701902748414377,
+        "f1-score": 0.641051567239636,
+        "support": 473
+      }
+    },
+    "confusion_matrix": [
+      [
+        1410,
+        282,
+        143
+      ],
+      [
+        137,
+        427,
+        56
+      ],
+      [
+        62,
+        94,
+        317
+      ]
+    ],
+    "class_names": [
+      "negative",
+      "neutral",
+      "positive"
+    ],
+    "total_samples": 2928
+  },
+  "error_analysis": {
+    "misclassified_examples": {
+      "negative_predicted_as_neutral": {
+        "count": 282,
+        "examples": [
+          "@SouthwestAir When will the flight resume? I don's see it in the open schedule. :/",
+          "@AmericanAir why would I pay $200 to reactivate my points that are only useful for certain flights that aren't even worth $200?",
+          "@SouthwestAir My flight was 952, leaving las vegas at 5:40pm, arriving at CHI-MID at 11:00 pm.",
+          "@SouthwestAir can I get any kind of update on the delayed flight from Boston to Houston at 7:30? Really need to be back home tonight!",
+          "@united in the process of purchasing ticket, when prices changed. unbelievable. #RipOffs #PriceDiscrimination"
+        ]
+      },
+      "negative_predicted_as_positive": {
+        "count": 143,
+        "examples": [
+          "@united you always surprise me with the awfulness of your airline. You guys suck. #worst",
+          "@AmericanAir But Eagle is always Late Flight",
+          "\u201c@USAirways: @AnnetteNaif We appreciate the #shoutout for Roberto. DM confirmation code so we can forward ur kind words.\u201d Confirmation code?",
+          "@USAirways And also, it's great that you tweet @ complainers, but what about the in-person help when I need it? Robyn F. in Manch = useless.",
+          "@united Flight attendant never served me my beverage (tea), and not once checked up on me. What gives? #ua6076 #notcool"
+        ]
+      },
+      "neutral_predicted_as_negative": {
+        "count": 137,
+        "examples": [
+          "@united This link in your tweet goes to someone's internal email -&gt; http://t.co/ZksX79itdN...... Probably one of your 3rd party IT contracts",
+          "@JetBlue such a bummer.  But I understand it's a business deal. Thanks for answering me!  Much less sad now.",
+          "@SouthwestAir I was under the impression when there is an 8 hour delay in your flight because of equipment failure, compensation is offered?",
+          "@AmericanAir @derekc21 , so what would be a file number that works , needs to be 10 characters , email me derek.austin@century21.ca  easier",
+          "@united I have already emailed but I didn't know if it was more expedient to contact you here. Please advise. Thanks."
+        ]
+      },
+      "neutral_predicted_as_positive": {
+        "count": 56,
+        "examples": [
+          "@united was in the air. Just DMd you",
+          "@USAirways it's vegas baby who doesn't have a good time in vegas lol",
+          "@AmericanAir @Slacksoft_uk I saw an American 767 in old colours at @HeathrowAirport on Saturday! Was surprised to see!",
+          "@VirginAmerica Many Thanks for the Follow.\n#ourprincess #freyasfund #USA #Bandie \nLooking for Any Help\ud83d\ude0d\n\ud83d\udc97\ud83c\uddec\ud83c\udde7\ud83d\udc97\ud83c\uddfa\ud83c\uddf8\ud83d\udc97\n\ud83c\udf80\ud83c\udf0f\ud83c\udf80 http://t.co/UJfS9Zi6kd",
+          "@AmericanAir Thank you for the response.  When I book I've tried my AA number and my US Airways number and each time it doesn't pick it up"
+        ]
+      },
+      "positive_predicted_as_negative": {
+        "count": 62,
+        "examples": [
+          "@JetBlue would you say a delay is more likely? Thanks so much.",
+          "@USAirways Well I did miss it. But gate agents had rebooked boarding pass waiting when I landed. Time for lunch &amp; a beverage. Easy cheesy",
+          "@JetBlue no, they're too busy being awesome and trying to get us out ASAP. I'll deal.",
+          "@SouthwestAir - just got it back about 20 mins ago. Went about 18 hrs w/o it but I appreciate the support. $50 voucher + $50 for essentials.",
+          "@united \nI will admit, you've been rather good to me over the years.\nYou've still got me hooked.\n(for now!)\nPeace."
+        ]
+      },
+      "positive_predicted_as_neutral": {
+        "count": 94,
+        "examples": [
+          "@AmericanAir #AmericanView Sweet Home Chicago http://t.co/J6icLV8DTs",
+          "@united is #ELP Friendly. #flyerfriendly #united #emb145 #elpaso http://t.co/9mEOzBO4xl",
+          "@JetBlue good morning sunshine! #TailfinThursday http://t.co/Nc0ES6e4Lf",
+          "@SouthwestAir Thanks! Sent a DM to you. Let me know if oyu need any additional information.",
+          "@united I wanna be grand staff"
+        ]
+      }
+    },
+    "error_analysis": {
+      "total_misclassified": 774,
+      "misclassification_rate": 0.26434426229508196,
+      "error_rates_by_class": {
+        "neutral": 0.31129032258064515,
+        "positive": 0.3298097251585624,
+        "negative": 0.23160762942779292
+      },
+      "most_common_error_patterns": [
+        {
+          "pattern": "negative \u2192 neutral",
+          "count": 282,
+          "percentage": 0.3643410852713178
+        },
+        {
+          "pattern": "negative \u2192 positive",
+          "count": 143,
+          "percentage": 0.1847545219638243
+        },
+        {
+          "pattern": "neutral \u2192 negative",
+          "count": 137,
+          "percentage": 0.17700258397932817
+        },
+        {
+          "pattern": "positive \u2192 neutral",
+          "count": 94,
+          "percentage": 0.12144702842377261
+        },
+        {
+          "pattern": "positive \u2192 negative",
+          "count": 62,
+          "percentage": 0.08010335917312661
+        }
+      ]
+    }
+  },
+  "classification_report_text": "              precision    recall  f1-score   support\n\n    negative       0.88      0.77      0.82      1835\n     neutral       0.53      0.69      0.60       620\n    positive       0.61      0.67      0.64       473\n\n    accuracy                           0.74      2928\n   macro avg       0.67      0.71      0.69      2928\nweighted avg       0.76      0.74      0.74      2928\n"
+}
