@@ -36,6 +36,7 @@ ENV/
 .idea/
 *.swp
 *.swo
+.cursor/
 
 # OS
 .DS_Store
@@ -68,4 +69,14 @@ data/
 embeddings/
 cache/
 models/
-results/ 
+
+# Development and debugging files
+debug_*.png
+debug_*.py
+*_debug.*
+temp_*.py
+scratch_*.py
+
+# Utility scripts (keep create_visualizations.py as it's part of the project)
+# But exclude any temporary visualization scripts
+temp_viz_*.py 

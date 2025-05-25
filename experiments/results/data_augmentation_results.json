@@ -1,0 +1,142 @@
+{
+  "experiment_info": {
+    "experiment_type": "data_augmentation",
+    "augmentation_method": "synonym_replacement",
+    "replacement_rate": 0.15,
+    "augment_ratio": 0.3,
+    "original_training_samples": 11712,
+    "augmented_training_samples": 14327,
+    "added_samples": 2615,
+    "test_samples": 2928
+  },
+  "baseline_results": {
+    "accuracy": 0.735655737704918,
+    "macro_avg": {
+      "precision": 0.6741392322244671,
+      "recall": 0.7090974409443332,
+      "f1-score": 0.686669148795942,
+      "support": 2928
+    },
+    "weighted_avg": {
+      "precision": 0.7610384146671184,
+      "recall": 0.735655737704918,
+      "f1-score": 0.7437946255307125,
+      "support": 2928
+    },
+    "per_class": {
+      "negative": {
+        "precision": 0.8763206960845246,
+        "recall": 0.7683923705722071,
+        "f1-score": 0.818815331010453,
+        "support": 1835
+      },
+      "neutral": {
+        "precision": 0.5317559153175592,
+        "recall": 0.6887096774193548,
+        "f1-score": 0.6001405481377371,
+        "support": 620
+      },
+      "positive": {
+        "precision": 0.6143410852713178,
+        "recall": 0.6701902748414377,
+        "f1-score": 0.641051567239636,
+        "support": 473
+      }
+    },
+    "confusion_matrix": [
+      [
+        1410,
+        282,
+        143
+      ],
+      [
+        137,
+        427,
+        56
+      ],
+      [
+        62,
+        94,
+        317
+      ]
+    ],
+    "class_names": [
+      "negative",
+      "neutral",
+      "positive"
+    ],
+    "total_samples": 2928
+  },
+  "augmented_results": {
+    "accuracy": 0.7332650273224044,
+    "macro_avg": {
+      "precision": 0.6719051813156777,
+      "recall": 0.7050652463710428,
+      "f1-score": 0.6833030632148035,
+      "support": 2928
+    },
+    "weighted_avg": {
+      "precision": 0.7591947071699778,
+      "recall": 0.7332650273224044,
+      "f1-score": 0.7414912453393294,
+      "support": 2928
+    },
+    "per_class": {
+      "negative": {
+        "precision": 0.875,
+        "recall": 0.7667574931880109,
+        "f1-score": 0.8173104850421145,
+        "support": 1835
+      },
+      "neutral": {
+        "precision": 0.5288343558282208,
+        "recall": 0.6951612903225807,
+        "f1-score": 0.6006968641114983,
+        "support": 620
+      },
+      "positive": {
+        "precision": 0.6118811881188119,
+        "recall": 0.653276955602537,
+        "f1-score": 0.6319018404907976,
+        "support": 473
+      }
+    },
+    "confusion_matrix": [
+      [
+        1407,
+        285,
+        143
+      ],
+      [
+        136,
+        431,
+        53
+      ],
+      [
+        65,
+        99,
+        309
+      ]
+    ],
+    "class_names": [
+      "negative",
+      "neutral",
+      "positive"
+    ],
+    "total_samples": 2928
+  },
+  "improvement": {
+    "accuracy": -0.0023907103825135945,
+    "weighted_f1": -0.0023033801913830976,
+    "macro_f1": -0.0033660855811384893
+  },
+  "analysis": "Minimal impact from data augmentation - model already well-generalized",
+  "augmentation_examples": [
+    {
+      "original": "@USAirways Used 2 get emails 1) pre-purchase a snack and 2) when time to check in. Got neither 4 tomorrow's trip. Do they not get sent now?",
+      "augmented": "@USAirways Used 2 get emails 1) pre-purchase a snack and 2) when time to check in. Got neither 4 tomorrow's trip. bash they not get sent now?"
+    }
+  ],
+  "conclusion": "Data augmentation did not improve performance",
+  "timestamp": "2025-05-25T10:24:46.840001"
+}

@@ -4,7 +4,7 @@
 
 **Best Model**: SVM with RBF kernel  
 **Performance**: **74.38% weighted F1-score**, 73.57% accuracy  
-**Assignment Status**: ✅ **COMPLETE** - All requirements fulfilled
+**Assignment Status**: ✅ **COMPLETE** - All requirements fulfilled + optional bonus
 
 ---
 
@@ -13,7 +13,7 @@
 ### ✅ Phase 1-3: Data Pipeline (COMPLETED)
 - [x] GloVe embedding loading and caching (`src/embeddings.py`)
 - [x] Tweet preprocessing and vectorization (`src/data_processing.py`) 
-- [x] Exploratory data analysis (`notebooks/eda.ipynb`)
+- [x] Exploratory data analysis (`src/eda.py`)
 
 ### ✅ Phase 4: Model Training (COMPLETED)
 - [x] Systematic experimentation with multiple models
@@ -30,6 +30,14 @@
 - [x] **What worked well** → Systematic approach, GloVe effectiveness, SVM performance
 - [x] **What didn't work** → Class imbalance, sarcasm detection, context limitations  
 - [x] **Next steps** → Advanced architectures, data augmentation, production considerations
+
+### ✅ Optional Bonus: Data Augmentation (COMPLETED)
+- [x] **Synonym replacement implementation** → `experiments/data_augmentation.py`
+- [x] **Performance comparison** → Baseline vs augmented results
+- [x] **Analysis of results** → Impact assessment and insights
+- [x] **Critical insight discovered** → Simple synonym replacement can degrade performance due to context loss
+
+**Key Learning**: The experiment revealed that naive synonym replacement (e.g., "Do" → "bash") introduces noise rather than helpful variation, demonstrating the importance of data augmentation quality over quantity.
 
 ---
 
@@ -73,7 +81,8 @@ airline-tweet-sentiment-analysis/
 │   └── evaluation.py               # Comprehensive evaluation tools
 ├── 📁 experiments/                  # Systematic experimentation
 │   ├── experiment_runner.py        # Automated testing framework
-│   ├── enhanced_features.py        # Feature engineering attempts
+│   ├── data_augmentation.py        # Optional bonus: synonym replacement
+│   ├── enhanced_features.py        # Feature engineering experiment
 │   └── results/                    # Experimental results
 ├── 📁 final_evaluation/            # Assignment deliverables
 │   ├── confusion_matrix.png        # ✅ Required visualization

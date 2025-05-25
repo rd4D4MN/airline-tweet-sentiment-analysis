@@ -1,7 +1,23 @@
 """
 Enhanced Features Experiment
 
-Add simple feature engineering to improve performance.
+This experiment tests whether adding handcrafted features to GloVe embeddings
+can improve sentiment classification performance.
+
+Approach:
+- Start with 100-dimensional GloVe word embeddings
+- Add 5 additional engineered features:
+  1. Text length (normalized)
+  2. Word count (normalized) 
+  3. Positive sentiment word count
+  4. Negative sentiment word count
+  5. Sentiment balance (positive - negative)
+
+Hypothesis: Combining semantic embeddings with explicit sentiment signals
+might improve classification, especially for edge cases.
+
+Results: Generally did not improve over pure GloVe embeddings, suggesting
+that GloVe already captures the necessary semantic information effectively.
 """
 
 import sys
@@ -123,6 +139,43 @@ def run_enhanced_experiment():
         print(f"  Per-class F1:")
         for class_name, metrics in eval_results['per_class'].items():
             print(f"    {class_name}: {metrics['f1-score']:.4f}")
+    
+    # Save results
+    import json
+    import pandas as pd
+    
+    results_summary = {
+        'experiment_info': {
+            'experiment_type': 'enhanced_features',
+            'approach': 'GloVe embeddings + handcrafted features',
+            'original_dimensions': 100,
+            'enhanced_dimensions': X_train.shape[1],
+            'added_features': [
+                'text_length_normalized',
+                'word_count_normalized', 
+                'positive_word_count',
+                'negative_word_count',
+                'sentiment_balance'
+            ],
+            'training_samples': len(train_texts),
+            'test_samples': len(test_texts)
+        },
+        'results': results,
+        'analysis': {
+            'enhanced_svm_f1': results['Enhanced SVM']['weighted_avg']['f1-score'],
+            'enhanced_lr_f1': results['Enhanced LR']['weighted_avg']['f1-score'],
+            'conclusion': 'Handcrafted features did not improve over pure GloVe embeddings',
+            'baseline_svm_f1': 0.7438,  # From previous experiments
+            'improvement_svm': results['Enhanced SVM']['weighted_avg']['f1-score'] - 0.7438
+        },
+        'timestamp': pd.Timestamp.now().isoformat()
+    }
+    
+    os.makedirs('results', exist_ok=True)
+    with open('results/enhanced_features_results.json', 'w') as f:
+        json.dump(results_summary, f, indent=2, default=str)
+    
+    print(f"\n💾 Results saved to: experiments/results/enhanced_features_results.json")
     
     return results
 

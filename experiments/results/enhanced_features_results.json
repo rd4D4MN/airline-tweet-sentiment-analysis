@@ -1,0 +1,143 @@
+{
+  "experiment_info": {
+    "experiment_type": "enhanced_features",
+    "approach": "GloVe embeddings + handcrafted features",
+    "original_dimensions": 100,
+    "enhanced_dimensions": 105,
+    "added_features": [
+      "text_length_normalized",
+      "word_count_normalized",
+      "positive_word_count",
+      "negative_word_count",
+      "sentiment_balance"
+    ],
+    "training_samples": 11712,
+    "test_samples": 2928
+  },
+  "results": {
+    "Enhanced SVM": {
+      "accuracy": 0.7336065573770492,
+      "macro_avg": {
+        "precision": 0.6781641183902417,
+        "recall": 0.7176988791413855,
+        "f1-score": 0.6910891290656949,
+        "support": 2928
+      },
+      "weighted_avg": {
+        "precision": 0.7643817041427536,
+        "recall": 0.7336065573770492,
+        "f1-score": 0.7426443511014889,
+        "support": 2928
+      },
+      "per_class": {
+        "negative": {
+          "precision": 0.8801784576163161,
+          "recall": 0.7525885558583106,
+          "f1-score": 0.8113983548766157,
+          "support": 1835
+        },
+        "neutral": {
+          "precision": 0.5237529691211401,
+          "recall": 0.7112903225806452,
+          "f1-score": 0.6032831737346102,
+          "support": 620
+        },
+        "positive": {
+          "precision": 0.6305609284332688,
+          "recall": 0.6892177589852009,
+          "f1-score": 0.6585858585858587,
+          "support": 473
+        }
+      },
+      "confusion_matrix": [
+        [
+          1381,
+          325,
+          129
+        ],
+        [
+          117,
+          441,
+          62
+        ],
+        [
+          71,
+          76,
+          326
+        ]
+      ],
+      "class_names": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "total_samples": 2928
+    },
+    "Enhanced LR": {
+      "accuracy": 0.6974043715846995,
+      "macro_avg": {
+        "precision": 0.6493344694243678,
+        "recall": 0.7078588912771915,
+        "f1-score": 0.6635471535786012,
+        "support": 2928
+      },
+      "weighted_avg": {
+        "precision": 0.7536062561318333,
+        "recall": 0.6974043715846995,
+        "f1-score": 0.7107240001115177,
+        "support": 2928
+      },
+      "per_class": {
+        "negative": {
+          "precision": 0.8921220723917672,
+          "recall": 0.6850136239782016,
+          "f1-score": 0.7749691738594328,
+          "support": 1835
+        },
+        "neutral": {
+          "precision": 0.47675675675675677,
+          "recall": 0.7112903225806452,
+          "f1-score": 0.5708737864077669,
+          "support": 620
+        },
+        "positive": {
+          "precision": 0.5791245791245792,
+          "recall": 0.7272727272727273,
+          "f1-score": 0.6447985004686035,
+          "support": 473
+        }
+      },
+      "confusion_matrix": [
+        [
+          1257,
+          407,
+          171
+        ],
+        [
+          100,
+          441,
+          79
+        ],
+        [
+          52,
+          77,
+          344
+        ]
+      ],
+      "class_names": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "total_samples": 2928
+    }
+  },
+  "analysis": {
+    "enhanced_svm_f1": 0.7426443511014889,
+    "enhanced_lr_f1": 0.7107240001115177,
+    "conclusion": "Handcrafted features did not improve over pure GloVe embeddings",
+    "baseline_svm_f1": 0.7438,
+    "improvement_svm": -0.0011556488985111635
+  },
+  "timestamp": "2025-05-25T11:16:54.195936"
+}

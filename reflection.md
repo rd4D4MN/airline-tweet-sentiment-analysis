@@ -67,29 +67,74 @@ This project successfully implemented a GloVe-based sentiment analysis system fo
 ## Next Steps for Improvement
 
 ### 1. **Advanced Feature Engineering**
+**Implemented enhanced features combining GloVe + handcrafted features:**
+- **Approach**: Added 5 features to 100-dimensional GloVe vectors (105 total dimensions)
+- **Features added**: Text length, word count, positive/negative word counts, sentiment balance
+- **Implementation**: `experiments/enhanced_features.py`
+- **Results**: 
+  - Enhanced SVM: 74.26% F1 (vs 74.38% baseline) = -0.12%
+  - Enhanced LR: 71.07% F1 (vs baseline LR performance)
+- **Conclusion**: Handcrafted features did not improve over pure GloVe embeddings
+
+**Feature engineering details:**
 ```python
-# Potential enhancements tested but didn't improve performance
-- Sentiment lexicon features (VADER, TextBlob)
-- Text statistics (length, punctuation, capitalization)
-- N-gram features to capture local context
+# Additional features beyond GloVe embeddings:
+enhanced_features = [
+    text_length / 100,           # Normalized text length
+    word_count / 20,             # Normalized word count  
+    positive_word_count,         # Count of positive sentiment words
+    negative_word_count,         # Count of negative sentiment words
+    pos_count - neg_count        # Sentiment balance score
+]
 ```
 
-### 2. **Model Architecture Improvements**
+**Why it didn't improve performance:**
+- **GloVe sufficiency**: 100-dimensional GloVe embeddings already capture semantic relationships effectively
+- **Feature redundancy**: Simple word counting may duplicate information already in embeddings
+- **Signal dilution**: Adding weak features (5 dimensions) to strong features (100 dimensions) can reduce overall signal
+- **Domain mismatch**: Generic sentiment word lists may not capture airline-specific sentiment nuances
+- **Normalization issues**: Different feature scales might not combine optimally despite StandardScaler
+
+### 2. **Data Augmentation Results (Optional Bonus)**
+**Implemented synonym replacement using WordNet:**
+- **Performance impact**: -0.24% F1-score (74.38% → 74.14%) - slight decrease
+- **Method**: 15% word replacement rate, 30% data augmentation ratio
+- **Analysis**: Data augmentation introduced noise rather than helpful variation
+- **Key insight**: Simple synonym replacement can degrade performance
+
+**Critical findings:**
+- **Poor synonym quality**: WordNet replaced "Do" with "bash" (auxiliary verb → action verb)
+- **Context ignorance**: No part-of-speech filtering led to grammatically incorrect sentences
+- **Sentiment corruption**: Random synonyms changed meaning and sentiment
+- **Lesson learned**: Data augmentation quality matters more than quantity
+
+**Why performance decreased:**
+- Model had to learn from corrupted examples like "bash they not get sent now?"
+- Synonym replacement introduced grammatical errors and semantic confusion
+- Simple WordNet approach lacks context awareness needed for social media text
+
+**Better approaches would include:**
+- Part-of-speech tagging to preserve grammatical structure
+- Context-aware embeddings (BERT-based synonym selection)
+- Sentiment-preserving augmentation techniques
+- Back-translation or paraphrasing instead of word-level replacement
+
+### 3. **Model Architecture Improvements**
 - **Sequence models**: LSTM/GRU to capture word order and context
 - **Attention mechanisms**: Focus on sentiment-bearing words
 - **Ensemble methods**: Combine multiple model predictions
 
-### 3. **Data Augmentation Strategies**
+### 4. **Data Augmentation Strategies**
 - **Oversampling minority classes**: SMOTE or similar techniques
 - **Synthetic data generation**: Paraphrase positive/neutral examples
 - **Cross-domain transfer**: Leverage general sentiment datasets
 
-### 4. **Advanced Preprocessing**
+### 5. **Advanced Preprocessing**
 - **Emoji handling**: Convert emojis to sentiment-bearing text
 - **Slang normalization**: Handle social media language variations
 - **Negation detection**: Explicit handling of "not good" vs "good"
 
-### 5. **Production Considerations**
+### 6. **Production Considerations**
 - **Model serving**: REST API for real-time classification
 - **Monitoring**: Track performance drift over time
 - **A/B testing**: Compare model versions in production

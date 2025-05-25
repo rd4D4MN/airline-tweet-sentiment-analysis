@@ -8,15 +8,39 @@
 ## 🚀 Quick Start
 
 ### View Key Results:
-- **📊 Confusion Matrix**: `final_evaluation/confusion_matrix.png`
-- **📈 Performance Metrics**: `final_evaluation/class_performance.png` 
-- **📝 Reflection**: `reflection.md`
-- **📋 Complete Summary**: `ASSIGNMENT_SUMMARY.md`
+- **📊 Complete Documentation**: `docs/README.md` - Organized visualizations and insights
+- **📈 Model Performance**: `docs/model_evaluation/` - Confusion matrices and performance metrics
+- **🔬 Methodology**: `docs/methodology/` - Process diagrams and experimental comparisons  
+- **📈 Data Analysis**: `docs/data_analysis/` - EDA visualizations
+- **📝 Reflection**: `reflection.md` - Detailed analysis and lessons learned
+- **📋 Complete Summary**: `ASSIGNMENT_SUMMARY.md` - Full assignment overview
 
 ### Run Final Evaluation:
 ```bash
 python complete_evaluation.py
 ```
+
+### Run Systematic Experiments:
+```bash
+cd experiments
+python experiment_runner.py
+```
+
+### Run Optional Bonus Task:
+```bash
+cd experiments
+python data_augmentation.py
+```
+
+### Run Enhanced Features Experiment:
+```bash
+cd experiments
+python enhanced_features.py
+```
+
+**Results saved to**: 
+- `experiments/results/data_augmentation_results.json`
+- `experiments/results/enhanced_features_results.json`
 
 ---
 
@@ -25,8 +49,17 @@ python complete_evaluation.py
 ```
 ├── 📁 src/                    # Core implementation modules
 ├── 📁 experiments/            # Systematic experimentation framework  
-├── 📁 final_evaluation/       # Assignment deliverables & visualizations
-├── 📁 notebooks/              # EDA and analysis notebooks
+│   ├── experiment_runner.py   # Systematic model comparison
+│   ├── data_augmentation.py   # ✅ Optional bonus: synonym replacement
+│   ├── enhanced_features.py   # Feature engineering experiment
+│   └── ...                    # Other experiments
+├── 📁 docs/                   # 📊 Organized documentation & visualizations
+│   ├── README.md              # Complete documentation overview
+│   ├── model_evaluation/      # Final model performance & confusion matrices
+│   ├── methodology/           # Process diagrams & experimental comparisons
+│   └── data_analysis/         # EDA visualizations & dataset insights
+├── 📁 final_evaluation/       # Assignment deliverables (reports & metrics)
+├── 📁 results/                # EDA outputs & analysis
 ├── 📁 data/                   # Tweet datasets  
 ├── 📁 embeddings/             # GloVe embeddings
 ├── reflection.md              # ✅ Required reflection section
@@ -46,6 +79,7 @@ python complete_evaluation.py
 | Misclassification analysis | ✅ Complete | See evaluation output |
 | Reflection section | ✅ Complete | `reflection.md` |
 | Systematic methodology | ✅ Complete | `experiments/` framework |
+| **Optional bonus: Data augmentation** | ✅ **Complete** | `experiments/data_augmentation.py` |
 
 ---
 
@@ -87,6 +121,7 @@ python complete_evaluation.py
 - Modular, maintainable architecture
 - Comprehensive caching system
 - Detailed logging and evaluation
+- Feature engineering experiments (GloVe + handcrafted features)
 
 ### ML Best Practices:
 - Class imbalance handling (`class_weight='balanced'`)
@@ -104,4 +139,5 @@ The **74.38% F1-score** places the model in the **"good performance"** category:
 - State-of-the-art: 80-85% F1 (transformer models)
 
 This represents excellent performance for CPU-friendly models within assignment constraints.
+
 
