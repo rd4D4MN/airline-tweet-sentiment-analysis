@@ -205,45 +205,97 @@ def create_feature_engineering_plot(features_data):
     plt.close()
 
 def create_performance_summary_plot(experiment_data):
-    """Create a simplified performance summary with two focused plots."""
+    """Create an improved performance summary with better aesthetics."""
     best = experiment_data['best_experiment']
     
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
     
-    # Plot 1: Performance Category (Industry Benchmarks)
+    # Plot 1: Performance Comparison with Industry Benchmarks
     performance = best['test_f1']
+    model_name = "SVM RBF"
     
-    # Create horizontal bar chart showing performance ranges
-    categories = ['Poor\n(<65%)', 'Fair\n(65-70%)', 'Good\n(70-75%)', 'Excellent\n(>75%)']
-    ranges = [0.65, 0.70, 0.75, 0.80]
-    colors = ['#e74c3c', '#f39c12', '#2ecc71', '#9b59b6']
+    # Create a clear benchmark comparison with better colors
+    benchmarks = ['Basic Models\n(60-65%)', 'Good Models\n(70-75%)', 'Excellent Models\n(>75%)']
+    benchmark_ranges = [0.625, 0.725, 0.80]
+    colors_bg = ['#ff7f7f', '#90EE90', '#DDA0DD']  # Softer colors
     
-    y_pos = np.arange(len(categories))
-    bars = ax1.barh(y_pos, ranges, color=colors, alpha=0.3, height=0.6)
+    x_pos = np.arange(len(benchmarks))
     
-    # Add category labels
-    for i, (cat, r) in enumerate(zip(categories, ranges)):
-        ax1.text(r/2, i, cat, ha='center', va='center', fontweight='bold', fontsize=11)
+    # Background bars for benchmark ranges with gradient effect
+    bars_bg = ax1.bar(x_pos, benchmark_ranges, alpha=0.4, 
+                     color=colors_bg, width=0.7, edgecolor='white', linewidth=2)
     
-    # Mark current performance
-    ax1.axvline(x=performance, color='red', linewidth=4, label=f'Our Model: {performance:.1%}')
-    ax1.set_xlim(0.6, 0.8)
-    ax1.set_xlabel('F1-Score')
-    ax1.set_title('Performance Category\n(Industry Benchmarks)', fontweight='bold')
-    ax1.legend()
-    ax1.set_yticks([])
+    # Our performance bar (highlighted) - positioned in the middle
+    bar_our = ax1.bar([1], [performance], alpha=0.95, 
+                     color='#FF6B35', width=0.5, 
+                     edgecolor='#D63031', linewidth=2,
+                     label=f'{model_name}: {performance:.1%}')
     
-    # Plot 2: Dataset Class Distribution
-    class_support = [1835, 620, 473]  # From confusion matrix
-    class_names = ['Negative\n(62.7%)', 'Neutral\n(21.2%)', 'Positive\n(16.1%)']
-    colors2 = ['#FF6B6B', '#4ECDC4', '#45B7D1']
+    ax1.set_ylabel('F1-Score', fontsize=12, fontweight='bold')
+    ax1.set_title('Performance vs Industry Benchmarks', fontweight='bold', fontsize=14, pad=20)
+    ax1.set_xticks(x_pos)
+    ax1.set_xticklabels(benchmarks, fontsize=11)
+    ax1.set_ylim(0.55, 0.85)
+    ax1.grid(axis='y', alpha=0.3, linestyle='--')
     
-    wedges, texts, autotexts = ax2.pie(class_support, labels=class_names, colors=colors2, 
-                                      autopct='%1.0f', startangle=90)
-    ax2.set_title('Dataset Class Distribution\n(Test Set)', fontweight='bold')
+    # Add value labels with better positioning
+    for i, (bar, value) in enumerate(zip(bars_bg, benchmark_ranges)):
+        # Background range labels
+        ax1.text(bar.get_x() + bar.get_width()/2, value + 0.015, 
+                f'{value:.0%}', ha='center', fontweight='bold', 
+                fontsize=10, alpha=0.8)
     
+    # Highlight our model performance
+    ax1.text(1, performance + 0.03, 
+            f'{model_name}\n{performance:.1%}', ha='center', fontweight='bold', 
+            fontsize=12, color='#D63031',
+            bbox=dict(boxstyle="round,pad=0.4", facecolor="#FFE5E5", 
+                     edgecolor='#D63031', linewidth=2, alpha=0.9))
+    
+    # Add category descriptions
+    descriptions = ['Baseline\nApproaches', 'Assignment\nTarget Range', 'State-of-the-Art\n(Deep Learning)']
+    for i, desc in enumerate(descriptions):
+        ax1.text(i, 0.57, desc, ha='center', fontsize=9, 
+                style='italic', alpha=0.7, color='#2d3436')
+    
+    # Plot 2: Per-Class Performance with better styling
+    classes = ['Negative', 'Neutral', 'Positive']
+    f1_scores = [best['negative_f1'], best['neutral_f1'], best['positive_f1']]
+    colors_class = ['#E17055', '#00B894', '#0984E3']  # More sophisticated colors
+    
+    bars2 = ax2.bar(classes, f1_scores, color=colors_class, alpha=0.8,
+                   edgecolor='white', linewidth=2)
+    ax2.set_ylabel('F1-Score', fontsize=12, fontweight='bold')
+    ax2.set_title('Per-Class Performance Breakdown', fontweight='bold', fontsize=14, pad=20)
+    ax2.set_ylim(0, 0.9)
+    ax2.grid(axis='y', alpha=0.3, linestyle='--')
+    
+    # Add value labels and insights with better styling
+    insights = ['Strongest\nPerformance', 'Most\nChallenging', 'Balanced\nResults']
+    for bar, value, class_name, insight in zip(bars2, f1_scores, classes, insights):
+        # F1 score labels
+        ax2.text(bar.get_x() + bar.get_width()/2, value + 0.03, 
+                f'{value:.1%}', ha='center', fontweight='bold', fontsize=11)
+        
+        # Insight labels
+        ax2.text(bar.get_x() + bar.get_width()/2, 0.08, insight, 
+                ha='center', fontsize=9, style='italic', alpha=0.7, color='#2d3436')
+    
+    # Add overall performance as main title
+    fig.suptitle(f'Final Model Performance: {performance:.1%} Weighted F1-Score ({model_name})', 
+                fontsize=18, fontweight='bold', y=0.95, color='#2d3436')
+    
+    # Improve layout
     plt.tight_layout()
-    plt.savefig('docs/model_evaluation/performance_summary.png', dpi=300, bbox_inches='tight')
+    plt.subplots_adjust(top=0.85, hspace=0.3)
+    
+    # Add subtle background color
+    fig.patch.set_facecolor('#FAFAFA')
+    ax1.set_facecolor('#FFFFFF')
+    ax2.set_facecolor('#FFFFFF')
+    
+    plt.savefig('docs/model_evaluation/performance_summary.png', dpi=300, bbox_inches='tight',
+                facecolor='#FAFAFA', edgecolor='none')
     plt.close()
 
 def create_methodology_flowchart():

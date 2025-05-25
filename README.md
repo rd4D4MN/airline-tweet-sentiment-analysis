@@ -110,6 +110,24 @@ python enhanced_features.py
 
 ---
 
+## 🎯 Visual Results Overview
+
+### Systematic ML Methodology
+![Methodology Flowchart](docs/methodology/methodology_flowchart.png)
+*Complete workflow from data loading to error analysis with detailed process steps*
+
+### Model Performance Comparison
+![Experiment Comparison](docs/methodology/experiment_comparison.png)
+*Performance comparison across 10+ model configurations and per-class results for best model*
+
+### Final Model Evaluation
+![Confusion Matrix](docs/model_evaluation/confusion_matrix_normalized.png)
+*Normalized confusion matrix showing prediction accuracy percentages*
+
+> 📋 **See [docs/README.md](docs/README.md) for complete visualization gallery and detailed analysis**
+
+---
+
 ## 🔬 Technical Highlights
 
 ### Systematic Approach:
