@@ -4,6 +4,8 @@
 
 This project successfully implemented a GloVe-based sentiment analysis system for airline tweets, achieving **74.38% weighted F1-score** using an SVM with RBF kernel. Through systematic experimentation and engineering best practices, I developed a robust CPU-friendly model that effectively handles the challenging task of three-class sentiment classification on imbalanced social media data.
 
+**📓 Primary Deliverable**: The complete analysis is presented in `main_analysis.ipynb`, a comprehensive Jupyter notebook that walks through the entire pipeline step-by-step, exactly meeting the assignment's deliverable requirements.
+
 ## What Worked Well
 
 ### 1. **Systematic Experimental Approach**

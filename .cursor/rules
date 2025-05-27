@@ -1,0 +1,58 @@
+# Python Code Quality Standards
+
+# Global Standards
+
+## Required for all files
+
+### Version Control Discipline
+Each task should be committed with meaningful messages tied to your project plan. Commit messages should reference phases or tasks from README. There should be a branch for each phase of the project.
+
+## Required for `**/*.py`
+
+### Docstrings
+Every function and class must have a meaningful docstring explaining purpose, parameters, and return type.
+
+### Typing
+All functions must use Python type annotations for parameters and return types.
+
+### Length
+Functions should be no longer than 50 lines. If longer, refactor into smaller functions.
+
+### Modular Code
+Avoid writing long scripts. Organize logic into modules under a `/src` directory.
+
+### Error Handling
+Use try-except blocks where file I/O or processing could fail. Wrap file loading and parsing in try-except blocks with meaningful error messages.
+
+## Prohibited in `**/*.py`
+
+### Hardcoded Paths
+Do not hardcode file paths. Use config or relative paths.
+
+### Global Code
+Do not write code at the top-level except `if __name__ == '__main__':`.
+
+# README Requirements
+
+## Required for `README.md`
+
+### Setup Instructions
+README must include how to set up and run the project.
+
+### Project Description
+README must contain a clear project overview and objective.
+
+### Reproducibility
+Include steps to reproduce results and load datasets.
+
+# Jupyter Notebook Standards
+
+## Required for `**/*.ipynb`
+
+### Markdown Explanation
+Each code cell must be preceded by a markdown cell explaining its purpose.
+
+## Prohibited in `**/*.ipynb`
+
+### Unused Imports
+Remove unused import statements from notebooks.
