@@ -7,19 +7,57 @@
 
 ## 🚀 Quick Start
 
+<<<<<<< Updated upstream
 ### View Key Results:
+<<<<<<< HEAD
 - **📊 Complete Documentation**: `docs/README.md` - Organized visualizations and insights
 - **📈 Model Performance**: `docs/model_evaluation/` - Confusion matrices and performance metrics
 - **🔬 Methodology**: `docs/methodology/` - Process diagrams and experimental comparisons  
 - **📈 Data Analysis**: `docs/data_analysis/` - EDA visualizations
 - **📝 Reflection**: `reflection.md` - Detailed analysis and lessons learned
 - **📋 Complete Summary**: `ASSIGNMENT_SUMMARY.md` - Full assignment overview
+=======
+- **📊 Confusion Matrix**: `final_evaluation/confusion_matrix.png`
+- **📈 Performance Metrics**: `final_evaluation/class_performance.png` 
+- **📝 Reflection**: `reflection.md`
+- **📋 Complete Summary**: `ASSIGNMENT_SUMMARY.md`
+=======
+### 📓 **Primary Deliverable** (Assignment Requirement):
+**`main_analysis.ipynb`** - Complete step-by-step analysis notebook
+>>>>>>> Stashed changes
+>>>>>>> phase6-final-deliverables
 
-### Run Final Evaluation:
+### 📋 **Setup Instructions:**
+
+<<<<<<< Updated upstream
+=======
+1. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Download required data files** (not in git due to size):
+   - [Training data](https://drive.google.com/file/d/1iqfE_thVL0JIg77aa5SZTc3OuqctLXLR/view?usp=drive_link) → `data/tweet_sentiment.train.jsonl`
+   - [Test data](https://drive.google.com/file/d/1EjSbweOB0ihPHpMKVkcfEqUGd-L1wLwX/view?usp=drive_link) → `data/tweet_sentiment.test.jsonl`
+   - [GloVe embeddings](https://drive.google.com/file/d/1t2TXAO-OSrdiQeZPHCz14-2eNViNW4QG/view?usp=drive_link) → `embeddings/glove.6B.100d.txt`
+
+3. **Run the main deliverable:**
+   ```bash
+   jupyter notebook main_analysis.ipynb
+   ```
+
+### 📊 **Additional Resources:**
+- **📈 Results & Visualizations**: `docs/` - Pre-generated evaluation metrics and confusion matrices
+- **📝 Reflection**: `reflection.md` - Detailed analysis and lessons learned
+
+### 🔬 **Optional: Run Additional Experiments**
 ```bash
-python complete_evaluation.py
+cd experiments
+python experiment_runner.py        # Systematic model comparison
+python data_augmentation.py        # Bonus: Data augmentation experiment
 ```
 
+<<<<<<< HEAD
 ### Run Systematic Experiments:
 ```bash
 cd experiments
@@ -42,12 +80,18 @@ python enhanced_features.py
 - `experiments/results/data_augmentation_results.json`
 - `experiments/results/enhanced_features_results.json`
 
+=======
+>>>>>>> Stashed changes
+>>>>>>> phase6-final-deliverables
 ---
 
 ## 📂 Project Structure
 
 ```
+├── 📓 main_analysis.ipynb     # 🎯 PRIMARY DELIVERABLE - Complete analysis notebook
+├── 📝 reflection.md           # Required reflection section  
 ├── 📁 src/                    # Core implementation modules
+<<<<<<< Updated upstream
 ├── 📁 experiments/            # Systematic experimentation framework  
 │   ├── experiment_runner.py   # Systematic model comparison
 │   ├── data_augmentation.py   # ✅ Optional bonus: synonym replacement
@@ -65,12 +109,20 @@ python enhanced_features.py
 ├── reflection.md              # ✅ Required reflection section
 ├── complete_evaluation.py     # Final evaluation script
 └── ASSIGNMENT_SUMMARY.md      # Complete assignment overview
+=======
+├── 📁 docs/                   # Pre-generated evaluation metrics & visualizations
+├── 📁 experiments/            # Optional: Additional experiments & data augmentation
+├── 📁 data/                   # Tweet datasets (download required)
+├── 📁 embeddings/             # GloVe embeddings (download required)
+└── requirements.txt           # Dependencies
+>>>>>>> Stashed changes
 ```
 
 ---
 
-## 🎯 Assignment Requirements Status
+## ✅ Assignment Requirements Completed
 
+<<<<<<< Updated upstream
 | Requirement | Status | Location |
 |-------------|--------|----------|
 | GloVe-based approach | ✅ Complete | `src/embeddings.py` |
@@ -79,7 +131,16 @@ python enhanced_features.py
 | Misclassification analysis | ✅ Complete | See evaluation output |
 | Reflection section | ✅ Complete | `reflection.md` |
 | Systematic methodology | ✅ Complete | `experiments/` framework |
+<<<<<<< HEAD
 | **Optional bonus: Data augmentation** | ✅ **Complete** | `experiments/data_augmentation.py` |
+=======
+=======
+- **✅ Runnable Jupyter notebook** → `main_analysis.ipynb` 
+- **✅ Concise README with setup** → This file
+- **✅ Evaluation metrics & confusion matrix** → Displayed in notebook and `docs/`
+- **✅ Optional bonus: Data augmentation** → `experiments/data_augmentation.py`
+>>>>>>> Stashed changes
+>>>>>>> phase6-final-deliverables
 
 ---
 
@@ -156,6 +217,12 @@ The **74.38% F1-score** places the model in the **"good performance"** category:
 - **Good performance: 70-75% F1** ← This result
 - State-of-the-art: 80-85% F1 (transformer models)
 
+<<<<<<< Updated upstream
 This represents excellent performance for CPU-friendly models within assignment constraints.
 
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> Stashed changes
+>>>>>>> phase6-final-deliverables
