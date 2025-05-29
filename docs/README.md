@@ -93,11 +93,6 @@ docs/
 
 ## 🔗 Related Files
 
-- **Assignment Summary**: `../ASSIGNMENT_SUMMARY.md` - Complete project overview
 - **Reflection**: `../reflection.md` - Detailed analysis and lessons learned
 - **Source Code**: `../src/` - Core implementation
 - **Experiments**: `../experiments/` - Systematic testing framework
-
----
-
-*All visualizations generated using `../create_visualizations.py` with professional styling and consistent formatting.* 

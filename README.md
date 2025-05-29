@@ -46,12 +46,15 @@ python data_augmentation.py        # Bonus: Data augmentation experiment
 ```
 ├── 📓 main_analysis.ipynb     # 🎯 PRIMARY DELIVERABLE - Complete analysis notebook
 ├── 📝 reflection.md           # Required reflection section  
+├── 📄 LICENSE                 # MIT License
+├── 📄 setup.py               # Package configuration
+├── 📄 requirements.txt        # Dependencies
 ├── 📁 src/                    # Core implementation modules
 ├── 📁 docs/                   # Pre-generated evaluation metrics & visualizations
 ├── 📁 experiments/            # Optional: Additional experiments & data augmentation
+├── 📁 tests/                  # Unit tests
 ├── 📁 data/                   # Tweet datasets (download required)
-├── 📁 embeddings/             # GloVe embeddings (download required)
-└── requirements.txt           # Dependencies
+└── 📁 embeddings/             # GloVe embeddings (download required)
 ```
 
 ---
