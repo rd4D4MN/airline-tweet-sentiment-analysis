@@ -35,6 +35,7 @@
 ```bash
 cd experiments
 python experiment_runner.py        # Systematic model comparison
+python enhanced_features.py        # Feature engineering experiment
 python data_augmentation.py        # Bonus: Data augmentation experiment
 ```
 
@@ -121,6 +122,7 @@ python data_augmentation.py        # Bonus: Data augmentation experiment
 - Comprehensive caching system
 - Detailed logging and evaluation
 - Feature engineering experiments (GloVe + handcrafted features)
+- Data augmentation experimentation
 
 ### ML Best Practices:
 - Class imbalance handling (`class_weight='balanced'`)
@@ -136,5 +138,3 @@ The **74.38% F1-score** places the model in the **"good performance"** category:
 - Basic sentiment models: 60-65% F1
 - **Good performance: 70-75% F1** ← This result
 - State-of-the-art: 80-85% F1 (transformer models)
-
-This represents excellent performance for CPU-friendly models within assignment constraints.
